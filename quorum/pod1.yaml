@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node1
+  labels:
+    app: 7node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: 7node
+  template:
+    metadata:
+      labels:
+        app: 7node
+  nodeSelector:
+    node: node1
+    spec:
+      containers:
+      - name: 7node
+        image: markpengisme/k8s:quorum
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do echo hello; sleep 10;done"]
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /home/123
+          name: git-volume
+
+      volumes:
+      - name: git-volume
+        gitRepo:
+          repository: "https://github.com/markpengisme/Docker.git"
+
+
