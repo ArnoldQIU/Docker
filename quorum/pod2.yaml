@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node1
+  name: node2
   labels:
     app: 7node
 spec:
   nodeSelector:
-    node: node1
+    node: node2
   replicas: 1
   selector:
     matchLabels:
