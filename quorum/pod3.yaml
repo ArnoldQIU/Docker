@@ -4,6 +4,7 @@ metadata:
   name: node3
   labels:
     app: 7node
+    node: node3
 spec:
   nodeSelector:
     node: node3
@@ -14,6 +15,7 @@ spec:
   template:
     metadata:
       labels:
+        node: node3
         app: 7node
     spec:
       containers:
@@ -24,7 +26,7 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - mountPath: /home/123
+        - mountPath: /quorum
           name: git-volume
 
       volumes:
