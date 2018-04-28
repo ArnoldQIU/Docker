@@ -10,7 +10,7 @@ do
     cp "keys/tm$i.pub" "$DDIR/tm.pub"
     cp "keys/tm$i.key" "$DDIR/tm.key"
     rm -f "$DDIR/tm.ipc"
-    CMD="constellation-node --url=https://35.192.115.187:25000/ --port=25000 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://35.192.115.187:25000"
+    CMD="constellation-node --url=https://35.192.115.187:9001/ --port=9001 --workdir=$DDIR --socket=tm.ipc --publickeys=tm.pub --privatekeys=tm.key --othernodes=https://35.192.115.187:9001/"
     echo "$CMD >> qdata/logs/constellation$i.log 2>&1 &"
     $CMD >> "qdata/logs/constellation$i.log" 2>&1 &
 done
